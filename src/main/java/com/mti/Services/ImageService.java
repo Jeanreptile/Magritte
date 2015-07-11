@@ -28,7 +28,7 @@ public class ImageService {
         image = dao.update(image);
         return image;
     }
-    
+
     public ArrayList<Image> GetImages()
     {
         Collection<Image> images = dao.findAll(Image.class);

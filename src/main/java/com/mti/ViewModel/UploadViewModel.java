@@ -2,7 +2,6 @@ package com.mti.ViewModel;
 
 import com.mti.Entities.Image;
 import com.mti.Services.ImageService;
-import org.apache.commons.io.FileUtils;
 import org.primefaces.model.UploadedFile;
 
 import javax.faces.application.FacesMessage;
