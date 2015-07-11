@@ -23,8 +23,6 @@ public class LoginService implements Serializable{
             {
                 return false;
             }
-            System.out.println("Yes, user is " + u.getEmail());
-        System.out.println("and entry is" + email);
             return (email.equals(u.getEmail()));
     }
 }
