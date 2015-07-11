@@ -6,6 +6,8 @@ import com.mti.Services.ImageService;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+import java.io.File;
+import java.net.URL;
 import java.util.List;
 
 /**
