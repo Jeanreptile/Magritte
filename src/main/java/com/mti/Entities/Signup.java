@@ -79,16 +79,16 @@ public class Signup implements Serializable {
             FacesContext.getCurrentInstance().addMessage(
                     "signupform:password",
                     new FacesMessage(FacesMessage.SEVERITY_WARN,
-                            "",
-                            "Passwords do not match! Please enter the same password twice."));
+                            "Passwords do not match! Please enter the same password twice.",
+                            ""));
             return "failure";
         }
         else {
             FacesContext.getCurrentInstance().addMessage(
                     "signupform:email",
                     new FacesMessage(FacesMessage.SEVERITY_WARN,
-                            "",
-                            "Email already exists! Please enter another email"));
+                            "Email already exists! Please enter another email",
+                            ""));
             return "failure";
         }
     }

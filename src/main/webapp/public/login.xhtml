@@ -18,6 +18,7 @@
     <div class="container">
     <h:form id="myForm" class="form-signin">
         <h1 class="form-signin-heading text-center">Magritte</h1>
+        <h4 class="text-center">Login</h4>
         <br />
         <div style="width:100%; text-align:center;">
             <img alt="logo magritte" src="../resources/img/logo.png" style="width: 80%; height:80%"></img>
@@ -28,11 +29,9 @@
         <h:outputText value="Email" />
         <h:inputText id="email" value="#{login.email}" placeholder="Email address" class="form-control"></h:inputText>
         <h:message for="email"></h:message>
-
         <h:outputText value="Password" />
         <h:inputSecret id="password" class="form-control" placeholder="Password" value="#{login.password}"></h:inputSecret>
         <h:message for="password"> <br /> </h:message>
-
         <h:commandButton action="#{login.validateUsernamePassword()}"
                          value="Login"
                          class="btn btn-lg btn-primary btn-block"></h:commandButton>
