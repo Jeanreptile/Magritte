@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS `magrittedb`;
 CREATE DATABASE `magrittedb`;
 USE `magrittedb`;
 
