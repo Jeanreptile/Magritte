@@ -42,5 +42,8 @@
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
     <orderEntry type="library" name="Maven: org.primefaces:primefaces:5.2" level="project" />
+    <orderEntry type="library" name="Maven: net.bootsfaces:bootsfaces:0.6.6" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.faces:jsf-api:2.2.10" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.faces:jsf-impl:2.2.10" level="project" />
   </component>
 </module>
