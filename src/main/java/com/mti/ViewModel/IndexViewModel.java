@@ -7,8 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
-import java.io.File;
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,20 +23,39 @@ public class IndexViewModel {
 
     private Image selectedImage;
 
+    private String search;
+
     @PostConstruct
     public void init() {
+
         images = service.GetImages();
+        search = "";
     }
 
     public List<Image> getImages() {
+        ArrayList<Image> filterImages = new ArrayList();
+        if (!search.equals("")) {
+            for (Image img : images)
+                if (img.getName().toLowerCase().contains(search.toLowerCase()))
+                    filterImages.add(img);
+            return filterImages;
+        }
         return images;
     }
 
     public Image getSelectedImage() {
-            return selectedImage;
+        return selectedImage;
     }
 
     public void setSelectedImage(Image selectedImage) {
         this.selectedImage = selectedImage;
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
     }
 }
