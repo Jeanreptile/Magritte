@@ -5,6 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 
@@ -21,10 +22,13 @@
         <f:facet name="header">
             Images
         </f:facet>
-        <p:panel header="#{image.id}" style="text-align:center">
-            <h:panelGrid columns="1" style="width:100%">
-                <p:graphicImage value="http://www.tutorialspoint.com/images/jsf-mini-logo.png"/>
+        <p:panel header="#{image.name}" style="text-align:center">
+            <h:panelGrid columns="1">
+               <!-- <p:graphicImage value="#{image.path}" styleClass="width:200px;"/>-->
 
+                <b:thumbnail>
+                    <img src="#{image.path}" alt="Generic placeholder thumbnail"/>
+                </b:thumbnail>
                 <h:outputText value="#{image.imageUser.username}" />
             </h:panelGrid>
         </p:panel>
