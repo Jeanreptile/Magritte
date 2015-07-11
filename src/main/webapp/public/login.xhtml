@@ -6,9 +6,9 @@
         >
 <h:head>
     <title>Login</title>
-    <h:outputStylesheet name="signin.css"/>
     <h:outputStylesheet name="bootstrap/css/bootstrap.css"/>
     <h:outputScript name="bootstrap/js/bootstrap.js"/>
+    <h:outputStylesheet name="signin.css"/>
 </h:head>
 <h:body>
     <div class="container">
@@ -31,7 +31,6 @@
             <h:inputSecret id="password" class="form-control" placeholder="Password"
                            value="#{login.password}"></h:inputSecret>
             <h:message for="password"> <br/> </h:message>
-            <h:commandButton action="#{login.logout()}" type="button" value="LogoutPlz"></h:commandButton>
             <h:commandButton action="#{login.validateUsernamePassword()}"
                              value="Login"
                              class="btn btn-lg btn-primary btn-block"></h:commandButton>
