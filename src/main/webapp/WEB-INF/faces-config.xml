@@ -5,17 +5,21 @@
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
     <navigation-rule>
-        <from-view-id>/login.xhtml</from-view-id>
+        <from-view-id>/public/login.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>admin</from-outcome>
-            <to-view-id>/admin.xhtml</to-view-id>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/public/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/public/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/signup.xhtml</from-view-id>
+        <from-view-id>/public/signup.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>failure</from-outcome>
-            <to-view-id>/signup.xhtml</to-view-id>
+            <to-view-id>/public/signup.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>success</from-outcome>
@@ -25,5 +29,4 @@
     <navigation-rule>
         <from-view-id>/public/*</from-view-id>
     </navigation-rule>
-
 </faces-config>

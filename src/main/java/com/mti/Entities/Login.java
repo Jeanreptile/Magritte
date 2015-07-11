@@ -25,49 +25,39 @@ public class Login implements Serializable {
     @Inject @Dependent
     private LoginService ls;
 
-    private String pwd;
-    private String msg;
-    private String user;
+    private String password;
+    private String email;
 
-    public String getPwd() {
-        return pwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        System.out.println("YES ! " + user);
-        this.user = user;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     //validate login
     public String validateUsernamePassword() {
-        boolean valid = ls.validate(user, pwd);
+        boolean valid = ls.validate(email, password);
         if (valid) {
             HttpSession session = SessionEntity.getSession();
-            session.setAttribute("username", user);
-            return "admin";
+            session.setAttribute("email", email);
+            return "success";
         } else {
             FacesContext.getCurrentInstance().addMessage(
                     "myForm:password",
                     new FacesMessage(FacesMessage.SEVERITY_WARN,
                             "Incorrect Username and Password",
                             "Please enter correct username and Password"));
-            return "login";
+            return "failure";
         }
     }
 
