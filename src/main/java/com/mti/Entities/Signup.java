@@ -4,6 +4,8 @@ import com.mti.dao.Dao;
 import com.mti.dao.LoginDao;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.SessionScoped;
@@ -70,7 +72,17 @@ public class Signup implements Serializable {
         {
             User u = new User();
             u.setEmail(email);
-            u.setPassword(password);
+            try {
+                MessageDigest md = MessageDigest.getInstance("SHA-256");
+                md.update(password.getBytes());
+                byte byteData[] = md.digest();
+                StringBuffer sb = new StringBuffer();
+                for (int i = 0; i < byteData.length; i++)
+                    sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+                u.setPassword(sb.toString());
+            } catch (NoSuchAlgorithmException e) {
+                return "failure";
+            }
             u.setUsername(username);
             dao.create(u);
             return "success";

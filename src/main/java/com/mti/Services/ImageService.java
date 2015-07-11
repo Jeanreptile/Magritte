@@ -28,10 +28,16 @@ public class ImageService {
         image = dao.update(image);
         return image;
     }
-    
+
     public ArrayList<Image> GetImages()
     {
         Collection<Image> images = dao.findAll(Image.class);
+        return new ArrayList(images);
+    }
+
+    public ArrayList<Image> GetImagesByUserId(Integer userId)
+    {
+        Collection<Image> images = dao.findAllBydUserId(Image.class, userId);
         return new ArrayList(images);
     }
 }
