@@ -11,26 +11,50 @@
 
 </h:head>
 <h:body>
-    <ui:insert name="menu" >
-        <ui:include src="/template/header.xhtml" />
+    <ui:insert name="menu">
+        <ui:include src="/template/header.xhtml"/>
     </ui:insert>
 
-    <p:dataGrid var="image" value="#{indexViewModel.images}" columns="3" layout="grid"
-                rows="12" paginator="true" id="images"
-                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                rowsPerPageTemplate="6,12,16">
-        <f:facet name="header">
-            Images
-        </f:facet>
-        <p:panel header="#{image.name}" style="text-align:center">
-            <h:panelGrid columns="1" style="width:100%">
+    <h:form id="form">
+        <p:dataGrid var="image" value="#{indexViewModel.images}" columns="3" layout="grid"
+                    rows="12" paginator="true" id="images"
+                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    rowsPerPageTemplate="6,12,16">
+            <f:facet name="header">
+                Images
+            </f:facet>
+            <p:panel header="#{image.name}" style="text-align:center">
+                <h:panelGrid columns="1">
+                    <b:thumbnail>
+                        <img src="#{image.path}" alt="Generic placeholder thumbnail"/>
+                    </b:thumbnail>
+                    <h:outputText value="#{image.imageUser.username}"/>
 
-                <b:thumbnail>
-                    <img src="#{image.path}" />
-                </b:thumbnail>
-                <h:outputText value="#{image.imageUser.username}" />
-            </h:panelGrid>
-        </p:panel>
-    </p:dataGrid>
+                    <p:commandLink update=":form:imageDetail" oncomplete="PF('imageDialog').show()" title="View Detail">
+                        <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;"/>
+                        <f:setPropertyActionListener value="#{image}" target="#{indexViewModel.selectedImage}"/>
+                    </p:commandLink>
+                </h:panelGrid>
+            </p:panel>
+        </p:dataGrid>
+
+
+        <p:dialog header="Image details" widgetVar="imageDialog" modal="true" showEffect="fade" hideEffect="fade"
+                  resizable="false">
+            <p:outputPanel id="imageDetail" style="text-align:center;">
+                <p:panelGrid columns="2" rendered="#{not empty indexViewModel.selectedImage}"
+                             columnClasses="label,value">
+                    <f:facet name="header">
+                        <p:graphicImage value="#{indexViewModel.selectedImage.path}" style="max-width:500px;"/>
+                    </f:facet>
+                    <h:outputText value="Title : #{indexViewModel.selectedImage.name}"/>
+                    <h:outputText value="By : #{indexViewModel.selectedImage.imageUser.username}"/>
+
+
+
+                </p:panelGrid>
+            </p:outputPanel>
+        </p:dialog>
+    </h:form>
 </h:body>
 </html>
