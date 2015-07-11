@@ -16,12 +16,12 @@
     </ui:insert>
 
     <h:form id="form">
-        <p:dataGrid var="image" value="#{indexViewModel.images}" columns="3" layout="grid"
+        <p:dataGrid var="image" value="#{userViewModel.images}" columns="3" layout="grid"
                     rows="12" paginator="true" id="images"
                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                     rowsPerPageTemplate="6,12,16">
             <f:facet name="header">
-                Gallery
+                #{userViewModel.user.username}'s Gallery
             </f:facet>
             <p:panel header="#{image.name}" style="text-align:center">
                 <h:panelGrid columns="1">
@@ -32,7 +32,7 @@
 
                     <p:commandLink update=":form:imageDetail" oncomplete="PF('imageDialog').show()" title="View Detail">
                         <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;"/>
-                        <f:setPropertyActionListener value="#{image}" target="#{indexViewModel.selectedImage}"/>
+                        <f:setPropertyActionListener value="#{image}" target="#{userViewModel.selectedImage}"/>
                     </p:commandLink>
                 </h:panelGrid>
             </p:panel>
@@ -42,14 +42,14 @@
         <p:dialog header="Image details" widgetVar="imageDialog" modal="true" showEffect="fade" hideEffect="fade"
                   resizable="false">
             <p:outputPanel id="imageDetail" style="text-align:center;">
-                <p:panelGrid columns="2" rendered="#{not empty indexViewModel.selectedImage}"
-                             columnClasses="label,value">
+                <p:panelGrid columns="2" rendered="#{not empty userViewModel.selectedImage}"
+                             columnClasses="value,value">
                     <f:facet name="header">
-                        <p:graphicImage value="#{indexViewModel.selectedImage.path}" style="max-width:500px;"/>
+                        <p:graphicImage value="#{userViewModel.selectedImage.path}" style="max-width:500px;"/>
                     </f:facet>
-                    <h:outputText value="Title : #{indexViewModel.selectedImage.name}"/>
-                    <h:link value="By : #{indexViewModel.selectedImage.imageUser.username}" outcome="user">
-                        <f:param name="id" value="#{indexViewModel.selectedImage.imageUser.id}"/>
+                    <h:outputText value="Title : #{userViewModel.selectedImage.name}"/>
+                    <h:link value="By : #{userViewModel.user.username}" outcome="user">
+                        <f:param name="id" value="#{userViewModel.selectedImage.imageUser.id}"/>
                     </h:link>
 
                 </p:panelGrid>
