@@ -1,12 +1,14 @@
 package com.mti.ViewModel;
 
 import com.mti.Entities.Image;
+import com.mti.Entities.SessionEntity;
 import com.mti.Services.ImageService;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +45,13 @@ public class IndexViewModel {
         return images;
     }
 
+    public String logout() {
+        System.out.println("LOOG OUTT");
+        HttpSession session = SessionEntity.getSession();
+        session.invalidate();
+        System.out.println(session);
+        return "logout";
+    }
     public Image getSelectedImage() {
         return selectedImage;
     }

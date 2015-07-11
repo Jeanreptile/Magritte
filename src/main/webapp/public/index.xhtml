@@ -5,17 +5,13 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:b="http://bootsfaces.net/ui"
-        >
+      xmlns:b="http://bootsfaces.net/ui">
 <h:head>
-
+    <title>Magritte</title>
+    <h:outputStylesheet name="bootstrap/css/bootstrap.css"/>
+    <h:outputScript name="bootstrap/js/bootstrap.js"/>
 </h:head>
 <h:body>
-    <h:head>
-        <title>Magritte</title>
-        <h:outputStylesheet name="bootstrap/css/bootstrap.css"/>
-        <h:outputScript name="bootstrap/js/bootstrap.js"/>
-    </h:head>
     <h:form>
         <p:growl id="messages"/>
         <p:menubar>
@@ -23,7 +19,7 @@
             " icon="ui-icon-transferthick-e-w"/>
             <f:facet name="options">
                 <h:inputText id="search1" value="#{indexViewModel.search}" required="true" label="Search" style="margin-right:10px"/>
-                <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
+                <h:commandButton value="Logout" action="#{indexViewModel.logout()}"/>
             </f:facet>
         </p:menubar>
     </h:form>

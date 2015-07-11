@@ -9,18 +9,26 @@
     <title>Upload</title>
     <h:outputStylesheet name="bootstrap/css/bootstrap.css"/>
     <h:outputScript name="bootstrap/js/bootstrap.js"/>
+    <h:outputStylesheet name="signin.css" />
 </h:head>
 <h:body>
-    <h1>Upload image</h1>
-    <h:form enctype="multipart/form-data">
-        <h:outputLabel for="imageName" value="Title of the image:" />
-        <p:inputText id="imageName" label="Image Name" value="#{uploadViewModel.imageTitle}" required="true"/>
-        <br/>
-        <p:growl id="messages" showDetail="true" />
-        <h:outputLabel for="imageName" value="Link to the image:" />
-        <p:inputText id="imageLink" label="Image Url" value="#{uploadViewModel.imageLink}" required="true"/>
-        <br/>
-        <p:commandButton value="Upload image" ajax="false" actionListener="#{uploadViewModel.upload}" disabled="false" />
-    </h:form>
+    <div class="container">
+        <h:form enctype="multipart/form-data" class="form-signin">
+            <h1 class="form-signin-heading text-center">Upload image</h1>
+            <h:outputLabel for="imageName" value="Title of the image:" />
+            <p:inputText id="imageName" value="#{uploadViewModel.imageTitle}" class="form-control"/>
+            <br/>
+            <p:growl id="messages" showDetail="true" />
+            <h:outputLabel for="imageName" value="Link to the image:" />
+            <p:inputText id="imageLink" value="#{uploadViewModel.imageLink}" class="form-control"/>
+            <br/>
+            <h:commandButton value="Upload image"
+                             actionListener="#{uploadViewModel.upload}"
+                             class="btn btn-lg btn-primary btn-block"/>
+            <div class="text-center">
+                <h:link value="Back to home" outcome="/public/index"/>
+            </div>
+        </h:form>
+    </div>
 </h:body>
 </html>
