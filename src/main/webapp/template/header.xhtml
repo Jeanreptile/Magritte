@@ -9,11 +9,10 @@
       >
 <h:head>
     <title>Magritte</title>
+    <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+    <h:outputScript name="bootstrap/js/bootstrap.js"/>
 </h:head>
 <h:body>
-
-
-
     <h:form>
         <p:growl id="messages"/>
         <p:menubar>
@@ -21,7 +20,6 @@
             <p:menuitem value="Magritte"></p:menuitem>
             <f:facet name="options">
                 <p:inputText style="margin-right:10px" placeholder="Search"/>
-
                 <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
             </f:facet>
         </p:menubar>
