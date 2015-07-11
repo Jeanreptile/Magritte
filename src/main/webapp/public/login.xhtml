@@ -3,36 +3,40 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-        xmlns:ui="http://java.sun.com/jsf/facelets">
+        >
 <h:head>
-    <title>login</title>
-    <h:outputStylesheet name="signin.css" />
+    <title>Login</title>
+    <h:outputStylesheet name="signin.css"/>
+    <h:outputStylesheet name="bootstrap/css/bootstrap.css"/>
+    <h:outputScript name="bootstrap/js/bootstrap.js"/>
 </h:head>
 <h:body>
     <div class="container">
-    <h:form id="myForm" class="form-signin">
-        <h1 class="form-signin-heading text-center">Magritte</h1>
-        <h4 class="text-center">Login</h4>
-        <br />
-        <div style="width:100%; text-align:center;">
-            <img alt="logo magritte" src="../resources/img/logo.png" style="width: 80%; height:80%"></img>
-        </div>
-        <br />
-        <br />
-        <br />
-        <h:outputText value="Email" />
-        <h:inputText id="email" value="#{login.email}" placeholder="Email address" class="form-control"></h:inputText>
-        <h:message for="email"></h:message>
-        <h:outputText value="Password" />
-        <h:inputSecret id="password" class="form-control" placeholder="Password" value="#{login.password}"></h:inputSecret>
-        <h:message for="password"> <br /> </h:message>
-        <h:commandButton action="#{login.logout()}" type="button" value="LogoutPlz" ></h:commandButton>
-        <h:commandButton action="#{login.validateUsernamePassword()}"
-                         value="Login"
-                         class="btn btn-lg btn-primary btn-block"></h:commandButton>
-    </h:form>
+        <h:form id="myForm" class="form-signin">
+            <h1 class="form-signin-heading text-center">Magritte</h1>
+            <h4 class="text-center">Login</h4>
+            <br/>
+
+            <div style="width:100%; text-align:center;">
+                <img alt="logo magritte" src="../resources/img/logo.png" style="width: 80%; height:80%"></img>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <h:outputText value="Email"/>
+            <h:inputText id="email" value="#{login.email}" placeholder="Email address"
+                         class="form-control"></h:inputText>
+            <h:message for="email"></h:message>
+            <h:outputText value="Password"/>
+            <h:inputSecret id="password" class="form-control" placeholder="Password"
+                           value="#{login.password}"></h:inputSecret>
+            <h:message for="password"> <br/> </h:message>
+            <h:commandButton action="#{login.logout()}" type="button" value="LogoutPlz"></h:commandButton>
+            <h:commandButton action="#{login.validateUsernamePassword()}"
+                             value="Login"
+                             class="btn btn-lg btn-primary btn-block"></h:commandButton>
+            <h:link value="Sign up" outcome="signup" class="btn btn-lg btn-primary btn-block"></h:link>
+        </h:form>
     </div>
 </h:body>
 </html>

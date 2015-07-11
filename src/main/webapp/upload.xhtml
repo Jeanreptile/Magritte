@@ -6,12 +6,11 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-
+    <title>Upload</title>
+    <h:outputStylesheet name="bootstrap/css/bootstrap.css"/>
+    <h:outputScript name="bootstrap/js/bootstrap.js"/>
 </h:head>
 <h:body>
-    <ui:insert name="menu" >
-        <ui:include src="/template/header.xhtml" />
-    </ui:insert>
     <h1>Upload image</h1>
     <h:form enctype="multipart/form-data">
         <h:outputLabel for="imageName" value="Title of the image:" />

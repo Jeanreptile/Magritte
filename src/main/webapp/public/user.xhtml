@@ -8,13 +8,22 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-
+    <title>User</title>
+    <h:outputStylesheet name="bootstrap/css/bootstrap.css"/>
+    <h:outputScript name="bootstrap/js/bootstrap.js"/>
 </h:head>
 <h:body>
-    <ui:insert name="menu">
-        <ui:include src="/template/header.xhtml"/>
-    </ui:insert>
-
+    <h:form>
+        <p:growl id="messages"/>
+        <p:menubar>
+            <p:menuitem value="Upload Image" url="http://localhost:8080/magritte/faces/upload.xhtml
+            " icon="ui-icon-transferthick-e-w"/>
+            <f:facet name="options">
+                <h:inputText id="search1" value="#{userViewModel.search}" required="true" label="Search" style="margin-right:10px"/>
+                <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
+            </f:facet>
+        </p:menubar>
+    </h:form>
     <h:form id="form">
         <p:dataGrid var="image" value="#{userViewModel.images}" columns="3" layout="grid"
                     rows="12" paginator="true" id="images"
