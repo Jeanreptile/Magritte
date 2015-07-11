@@ -9,19 +9,19 @@
     <title>login</title>
 </h:head>
 <h:body>
-    <h:form>
+    <h:form id="myForm">
         <h3>JSF Login Logout</h3>
         <h:outputText value="Username" />
-        <h:inputText id="username" value="${login.user}"></h:inputText>
+        <h:inputText id="username" value="#{login.user}"></h:inputText>
         <h:message for="username"></h:message>
         <br /><br />
 
         <h:outputText value="Password" />
-        <h:inputSecret id="password" value="${login.pwd}"></h:inputSecret>
+        <h:inputSecret id="password" value="#{login.pwd}"></h:inputSecret>
         <h:message for="password"></h:message>
         <br /><br />
 
-        <h:commandButton action="${login.validateUsernamePassword()}"
+        <h:commandButton action="#{login.validateUsernamePassword()}"
                          value="Login"></h:commandButton>
     </h:form>
 </h:body>

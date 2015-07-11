@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 @SessionScoped
 public class Login implements Serializable {
 
+    private static final long serialVersionUID = 1094801825228386363L;
 
     @Inject @Dependent
     private LoginService ls;
@@ -59,13 +60,12 @@ public class Login implements Serializable {
         if (valid) {
             HttpSession session = SessionEntity.getSession();
             session.setAttribute("username", user);
-            System.out.println("OK OK");
             return "admin";
         } else {
             FacesContext.getCurrentInstance().addMessage(
-                    null,
+                    "myForm:password",
                     new FacesMessage(FacesMessage.SEVERITY_WARN,
-                            "Incorrect Username and Passowrd",
+                            "Incorrect Username and Password",
                             "Please enter correct username and Password"));
             return "login";
         }
