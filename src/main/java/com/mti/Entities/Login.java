@@ -7,6 +7,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
@@ -62,10 +63,8 @@ public class Login implements Serializable {
     }
     //logout event, invalidate session
     public String logout() {
-        System.out.println("LOOG OUTT");
         HttpSession session = SessionEntity.getSession();
         session.invalidate();
-        System.out.println(session);
         return "logout";
     }
 }

@@ -15,13 +15,14 @@
     <h:form>
         <p:growl id="messages"/>
         <p:menubar>
-            <p:menuitem value="Upload Image" url="http://localhost:8080/magritte/faces/upload.xhtml
-            " icon="ui-icon-transferthick-e-w"/>
+            <p:menuitem value="Upload Image" url="http://localhost:8080/magritte/faces/upload.xhtml" icon="ui-icon-transferthick-e-w"/>
             <f:facet name="options">
                 <h:inputText id="search1" value="#{indexViewModel.search}" required="true" label="Search" style="margin-right:10px"/>
-                <h:commandButton value="Logout" action="#{indexViewModel.logout()}"/>
             </f:facet>
         </p:menubar>
+    </h:form>
+    <h:form>
+    <p:commandButton style="position: absolute; right: 0;" value="Logout" id="logouut" ajax="false" actionListener="#{login.logout()}"/>
     </h:form>
     <h:form id="form">
         <p:dataGrid var="image" value="#{indexViewModel.images}" columns="3" layout="grid"
