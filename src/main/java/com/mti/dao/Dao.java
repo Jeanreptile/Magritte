@@ -26,7 +26,6 @@ public class Dao implements Serializable {
                 clazz.getName())).getResultList();
     }
 
-    /*
     @Transactional
     public <BEAN extends Model> BEAN update(final BEAN bean) {
         em.merge(bean);
@@ -43,5 +42,4 @@ public class Dao implements Serializable {
     public <BEAN extends Model> void delete(final Class<BEAN> clazz, final Integer id) {
         em.remove(find(clazz, id));
     }
-    */
 }
