@@ -2,6 +2,7 @@ package com.mti.dao;
 
 import com.mti.Entities.Model;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -10,7 +11,7 @@ import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.Collection;
 
-@Singleton
+@ApplicationScoped
 public class Dao implements Serializable {
 
     @PersistenceContext(unitName = "magrittedbPu")

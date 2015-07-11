@@ -26,11 +26,11 @@
         <br />
         <br />
         <h:outputText value="Email" />
-        <h:inputText id="username" value="#{login.user}" placeholder="Email address" class="form-control"></h:inputText>
-        <h:message for="username"></h:message>
+        <h:inputText id="email" value="#{login.email}" placeholder="Email address" class="form-control"></h:inputText>
+        <h:message for="email"></h:message>
 
         <h:outputText value="Password" />
-        <h:inputSecret id="password" class="form-control" placeholder="Password" value="#{login.pwd}"></h:inputSecret>
+        <h:inputSecret id="password" class="form-control" placeholder="Password" value="#{login.password}"></h:inputSecret>
         <h:message for="password"> <br /> </h:message>
 
         <h:commandButton action="#{login.validateUsernamePassword()}"
