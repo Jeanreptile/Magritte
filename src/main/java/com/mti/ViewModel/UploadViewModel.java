@@ -38,11 +38,14 @@ public class UploadViewModel {
         this.imageTitle = imageTitle;
     }
 
-    public void upload() throws IOException {
+    public String upload() throws IOException {
         Image image = null;
         if ((image = imageService.saveImage(getImageLink(), getImageTitle())) != null) {
             FacesMessage message = new FacesMessage("Image successfully uploaded.");
             FacesContext.getCurrentInstance().addMessage(null, message);
+            return "success";
         }
+        else
+            return "failure";
     }
 }
