@@ -32,6 +32,7 @@
         <h:outputText value="Password" />
         <h:inputSecret id="password" class="form-control" placeholder="Password" value="#{login.password}"></h:inputSecret>
         <h:message for="password"> <br /> </h:message>
+        <h:commandButton action="#{login.logout()}" type="button" value="LogoutPlz" ></h:commandButton>
         <h:commandButton action="#{login.validateUsernamePassword()}"
                          value="Login"
                          class="btn btn-lg btn-primary btn-block"></h:commandButton>

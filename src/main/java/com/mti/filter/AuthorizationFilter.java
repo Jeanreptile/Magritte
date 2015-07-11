@@ -19,12 +19,13 @@ import javax.servlet.http.HttpSession;
 @WebFilter(filterName = "AuthFilter", urlPatterns = { "*.xhtml" })
 public class AuthorizationFilter implements Filter {
 
+    int c;
     public AuthorizationFilter() {
     }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
+        c = 0;
     }
 
     @Override
@@ -36,9 +37,14 @@ public class AuthorizationFilter implements Filter {
             HttpServletResponse resp = (HttpServletResponse) response;
             HttpSession ses = reqt.getSession(false);
             String reqURI = reqt.getRequestURI();
-            System.out.println("BIIITE" + reqURI);
+
+            System.out.println("OK FILTER " + c + reqURI);
+            c = c + 1;
 
             if (reqURI.indexOf("/login.xhtml") >= 0
+                    && (ses != null && ses.getAttribute("email") != null))
+                resp.sendRedirect(reqt.getContextPath() + "/faces/public/index.xhtml");
+            else if (reqURI.indexOf("/login.xhtml") >= 0
                     || (ses != null && ses.getAttribute("email") != null)
                     || reqURI.indexOf("/public/") >= 0
                     || reqURI.contains("javax.faces.resource"))
