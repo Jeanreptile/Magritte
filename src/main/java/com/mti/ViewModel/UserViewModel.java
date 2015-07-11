@@ -11,6 +11,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,8 +34,11 @@ public class UserViewModel {
 
     private User user;
 
+    private String search;
+
     @PostConstruct
     public void init() {
+        search = "";
         HttpServletRequest hsr = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
         Integer userId = Integer.parseInt(hsr.getParameter("id"));
         images = imageService.GetImagesByUserId(userId);
@@ -42,6 +46,13 @@ public class UserViewModel {
     }
 
     public List<Image> getImages() {
+        ArrayList<Image> filterImages = new ArrayList();
+        if (!search.equals("")) {
+            for (Image img : images)
+                if (img.getName().toLowerCase().contains(search.toLowerCase()))
+                    filterImages.add(img);
+            return filterImages;
+        }
         return images;
     }
 
@@ -59,5 +70,13 @@ public class UserViewModel {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
     }
 }
