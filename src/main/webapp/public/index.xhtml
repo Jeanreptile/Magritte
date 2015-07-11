@@ -6,15 +6,26 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:b="http://bootsfaces.net/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+        >
 <h:head>
 
 </h:head>
 <h:body>
-    <ui:insert name="menu">
-        <ui:include src="/template/header.xhtml"/>
-    </ui:insert>
-
+    <h:head>
+        <title>Magritte</title>
+        <h:outputStylesheet name="bootstrap/css/bootstrap.css"/>
+        <h:outputScript name="bootstrap/js/bootstrap.js"/>
+    </h:head>
+    <h:form>
+        <p:growl id="messages"/>
+        <p:menubar>
+            <p:menuitem value="Upload Image" action="index.xhtml" icon="ui-icon-transferthick-e-w"/>
+            <f:facet name="options">
+                <h:inputText id="search1" value="#{indexViewModel.search}" required="true" label="Search" style="margin-right:10px"/>
+                <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
+            </f:facet>
+        </p:menubar>
+    </h:form>
     <h:form id="form">
         <p:dataGrid var="image" value="#{indexViewModel.images}" columns="3" layout="grid"
                     rows="12" paginator="true" id="images"
@@ -43,7 +54,7 @@
                   resizable="false">
             <p:outputPanel id="imageDetail" style="text-align:center;">
                 <p:panelGrid columns="2" rendered="#{not empty indexViewModel.selectedImage}"
-                             columnClasses="label,value">
+                             columnClasses="value   ,value">
                     <f:facet name="header">
                         <p:graphicImage value="#{indexViewModel.selectedImage.path}" style="max-width:500px;"/>
                     </f:facet>
