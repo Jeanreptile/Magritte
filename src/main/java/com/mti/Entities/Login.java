@@ -1,6 +1,5 @@
 package com.mti.Entities;
-import com.mti.Entities.SessionEntity;
-import com.mti.Service.LoginService;
+import com.mti.Services.LoginService;
 
 import java.io.Serializable;
 

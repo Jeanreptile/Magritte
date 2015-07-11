@@ -1,4 +1,4 @@
-package com.mti.Service;
+package com.mti.Services;
 
 import com.mti.Entities.User;
 import com.mti.dao.LoginDao;
@@ -18,11 +18,12 @@ public class LoginService implements Serializable{
     private LoginDao ldao;
 
     public boolean validate(String email, String password) {
-            User u = ldao.findByUser(email);
-            if (u == null)
-            {
-                return false;
-            }
-            return (email.equals(u.getEmail()));
+        User u = ldao.findByUser(email);
+        if (u == null)
+        {
+            return false;
+        }
+        String hashedPassword = password;
+        return(hashedPassword.equals(u.getPassword()));
     }
 }
