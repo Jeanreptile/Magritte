@@ -4,6 +4,7 @@ import com.mti.Entities.Image;
 import com.mti.dao.Dao;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -17,9 +18,9 @@ public class ImageService {
     {
     }
 
-    public Collection<Image> GetImages()
+    public ArrayList<Image> GetImages()
     {
         Collection<Image> images = dao.findAll(Image.class);
-        return images;
+        return new ArrayList(images);
     }
 }
