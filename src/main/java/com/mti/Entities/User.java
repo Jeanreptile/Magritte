@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created by Jean Royer on 4/25/15.
+ * Created by Jean Royer on 7/11/15.
  */
 @Getter
 @Setter
@@ -34,4 +34,6 @@ public class User implements Model {
     @Column(name="email")
     private String email;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "imageUser")
+    private List<Image> imageUserList;
 }

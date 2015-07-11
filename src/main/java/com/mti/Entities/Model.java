@@ -2,7 +2,7 @@ package com.mti.Entities;
 
 
 /**
- * Created by antoine on 24/04/15.
+ * Created by antoine on 7/11/15.
  */
 public interface Model {
 
