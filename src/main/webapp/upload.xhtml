@@ -3,7 +3,6 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
 
@@ -12,11 +11,11 @@
     <h1>Upload image</h1>
     <h:form enctype="multipart/form-data">
         <h:outputLabel for="imageName" value="Title of the image:" />
-        <p:inputText id="imageName" value="#{uploadViewModel.imageTitle}"/>
+        <p:inputText id="imageName" label="Image Name" value="#{uploadViewModel.imageTitle}" required="true"/>
         <br/>
         <p:growl id="messages" showDetail="true" />
         <h:outputLabel for="imageName" value="Link to the image:" />
-        <p:inputText id="imageLink" value="#{uploadViewModel.imageLink}"/>
+        <p:inputText id="imageLink" label="Image Url" value="#{uploadViewModel.imageLink}" required="true"/>
         <br/>
         <p:commandButton value="Upload image" ajax="false" actionListener="#{uploadViewModel.upload}" disabled="false" />
     </h:form>

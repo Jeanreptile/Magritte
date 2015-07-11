@@ -19,7 +19,8 @@
     <h:form>
         <p:growl id="messages"/>
         <p:menubar>
-            <p:menuitem value="Upload Image" action="index.xhtml" icon="ui-icon-transferthick-e-w"/>
+            <p:menuitem value="Upload Image" url="http://localhost:8080/magritte/faces/upload.xhtml
+            " icon="ui-icon-transferthick-e-w"/>
             <f:facet name="options">
                 <h:inputText id="search1" value="#{indexViewModel.search}" required="true" label="Search" style="margin-right:10px"/>
                 <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
