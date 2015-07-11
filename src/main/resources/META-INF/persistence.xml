@@ -3,6 +3,7 @@
     <persistence-unit name="magrittedbPu" transaction-type="JTA">
         <jta-data-source>jdbc/magrittedb</jta-data-source>
         <class>com.mti.Entities.User</class>
+        <class>com.mti.Entities.Image</class>
         <properties>
         </properties>
     </persistence-unit>

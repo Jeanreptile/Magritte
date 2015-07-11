@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,8 +32,9 @@ public class Image implements Model {
 
     @Column(name="path")
     private String path;
+
     @Column(name="createdate")
-    private String createdate;
+    private Date createdate;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="userid", referencedColumnName = "userid")
