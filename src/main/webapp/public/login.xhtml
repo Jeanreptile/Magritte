@@ -8,13 +8,11 @@
         xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
     <title>login</title>
+    <h:outputStylesheet name="bootstrap/css/bootstrap.css"/>
+    <h:outputScript name="bootstrap/js/bootstrap.js"/>
     <h:outputStylesheet name="signin.css" />
 </h:head>
 <h:body>
-    <ui:insert name="menu">
-        <ui:include src="/template/header.xhtml" />
-    </ui:insert>
-
     <div class="container">
     <h:form id="myForm" class="form-signin">
         <h1 class="form-signin-heading text-center">Magritte</h1>
@@ -32,7 +30,6 @@
         <h:outputText value="Password" />
         <h:inputSecret id="password" class="form-control" placeholder="Password" value="#{login.password}"></h:inputSecret>
         <h:message for="password"> <br /> </h:message>
-        <h:commandButton action="#{login.logout()}" type="button" value="LogoutPlz" ></h:commandButton>
         <h:commandButton action="#{login.validateUsernamePassword()}"
                          value="Login"
                          class="btn btn-lg btn-primary btn-block"></h:commandButton>

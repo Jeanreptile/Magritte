@@ -38,7 +38,11 @@ public class AuthorizationFilter implements Filter {
             HttpSession ses = reqt.getSession(false);
             String reqURI = reqt.getRequestURI();
 
-            System.out.println("OK FILTER " + c + reqURI);
+            System.out.println("OK FILTER " + c + reqURI );
+            if (ses != null && ses.getAttribute("email") != null)
+            {
+                System.out.println("REQ IS " + ses.getAttribute("email"));
+            }
             c = c + 1;
 
             if (reqURI.indexOf("/login.xhtml") >= 0
