@@ -27,6 +27,11 @@ public class Dao implements Serializable {
                 clazz.getName())).getResultList();
     }
 
+    public <BEAN extends Model> Collection<BEAN> findAllBydUserId(final Class<BEAN> clazz, int userid) {
+        return em.createQuery(String.format("from %s where userid = %d",
+                clazz.getName(), userid)).getResultList();
+    }
+
     @Transactional
     public <BEAN extends Model> BEAN update(final BEAN bean) {
         em.merge(bean);
