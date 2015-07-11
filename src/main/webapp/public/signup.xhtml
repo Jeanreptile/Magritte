@@ -4,34 +4,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
     <title>Sign up</title>
+    <h:outputStylesheet name="signin.css" />
 </h:head>
 <h:body>
-    <h:form id="signupform">
+    <ui:insert name="menu">
+        <ui:include src="/template/header.xhtml" />
+    </ui:insert>
+    <div class="container">
+    <h:form id="signupform" class="form-signin">
+        <h1 class="form-signin-heading text-center">Magritte</h1>
+        <h4 class="text-center">Sign up</h4>
+        <br />
+        <div style="width:100%; text-align:center;">
+            <img alt="logo magritte" src="../resources/img/logo.png" style="width: 80%; height:80%"></img>
+        </div>
+        <br />
+        <br />
+        <br />
         <h:outputText value="Email" />
-        <h:inputText id="email" value="${signup.email}" required="true"></h:inputText>
+        <h:inputText id="email" value="${signup.email}" required="true" class="form-control"></h:inputText>
         <h:message for="email"></h:message>
-        <br /><br />
-
         <h:outputText value="Username" />
-        <h:inputText id="username" value="${signup.username}" required="true"></h:inputText>
+        <h:inputText id="username" value="${signup.username}" required="true" class="form-control"></h:inputText>
         <h:message for="username"></h:message>
-        <br /><br />
-
         <h:outputText value="Password" />
-        <h:inputSecret id="password" value="${signup.password}" required="true"></h:inputSecret>
+        <h:inputSecret id="password" value="${signup.password}" required="true" class="form-control"></h:inputSecret>
         <h:message for="password"></h:message>
-        <br /><br />
-
         <h:outputText value="Confirm password" />
-        <h:inputSecret id="password2" value="${signup.password2}" required="true"></h:inputSecret>
+        <h:inputSecret id="password2" value="${signup.password2}" required="true" class="form-control"></h:inputSecret>
         <h:message for="password2"></h:message>
-        <br /><br />
-
         <h:commandButton action="${signup.signUp()}"
-                         value="Sign up"></h:commandButton>
+                         value="Sign up"
+                         class="btn btn-lg btn-primary btn-block"></h:commandButton>
     </h:form>
+    </div>
 </h:body>
 </html>

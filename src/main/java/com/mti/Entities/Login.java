@@ -56,7 +56,7 @@ public class Login implements Serializable {
                     "myForm:password",
                     new FacesMessage(FacesMessage.SEVERITY_WARN,
                             "Incorrect Username and Password",
-                            "Please enter correct username and Password"));
+                            ""));
             return "failure";
         }
     }
