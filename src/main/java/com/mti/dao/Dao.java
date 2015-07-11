@@ -7,10 +7,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.io.Serializable;
 import java.util.Collection;
 
 @Singleton
-public class Dao {
+public class Dao implements Serializable {
 
     @PersistenceContext(unitName = "magrittedbPu")
     protected EntityManager em;

@@ -4,6 +4,7 @@ import com.mti.Service.LoginService;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.Dependent;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -20,10 +21,9 @@ import javax.servlet.http.HttpSession;
 @SessionScoped
 public class Login implements Serializable {
 
-    private transient @Inject LoginService bundle;
 
-
-
+    @Inject @Dependent
+    private LoginService ls;
 
     private String pwd;
     private String msg;
@@ -56,11 +56,11 @@ public class Login implements Serializable {
 
     //validate login
     public String validateUsernamePassword() {
-        System.out.println("USER is " + user + "  AND MDP IS " + pwd);
         boolean valid = ls.validate(user, pwd);
         if (valid) {
             HttpSession session = SessionEntity.getSession();
             session.setAttribute("username", user);
+            System.out.println("OK OK");
             return "admin";
         } else {
             FacesContext.getCurrentInstance().addMessage(
